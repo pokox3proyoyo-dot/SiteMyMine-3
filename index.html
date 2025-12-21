@@ -31,7 +31,7 @@
                     <a href="https://github.com/pokox3proyoyo-dot/SiteMyMine-3/releases/download/1.0/MegaSbornik-Drun.zip" class="reserve-btn">Скачать Сборку</a>
                 </div>
                 <div class="hero-image">
-                    <img src="img/head.png" alt="MyMine Server Main">
+                    <img src="head.png" alt="MyMine Server Main">
                 </div>
             </section>
 
@@ -47,13 +47,13 @@
 
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="img/1.png" alt="Скриншот 1">
+                        <img src="1.png" alt="Скриншот 1">
                     </div>
                     <div class="gallery-item">
-                        <img src="img/2.png" alt="Скриншот 2">
+                        <img src="2.png" alt="Скриншот 2">
                     </div>
                     <div class="gallery-item">
-                        <img src="img/3.png" alt="Скриншот 3">
+                        <img src="3.png" alt="Скриншот 3">
                     </div>
                 </div>
             </section>
@@ -85,21 +85,16 @@
     </main>
 
     <script>
-        // ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
         function showSection(sectionId) {
-            // Скрываем все страницы
             document.querySelectorAll('.page-container').forEach(page => {
                 page.classList.remove('active-section');
             });
-            // Убираем актив класс у кнопок
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
 
-            // Показываем нужную страницу
             document.getElementById(sectionId).classList.add('active-section');
 
-            // Подсветка кнопки
             if (sectionId === 'home') {
                  document.querySelector('.nav-link:nth-child(1)').classList.add('active');
             } else {
@@ -107,7 +102,6 @@
             }
         }
 
-        // КОПИРОВАНИЕ IP
         function copyIp() {
             navigator.clipboard.writeText("play.mymine.fun");
             const btnText = document.getElementById("ip-text");
