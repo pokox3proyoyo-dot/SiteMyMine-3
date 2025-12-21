@@ -3,85 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MYMINE.FUN | Create & Combat</title>
+    <title>MyMine.fun ✨</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="hero">
-        <div class="overlay"></div>
-        <div class="content">
-            <h1>MYMINE.FUN</h1>
-            <p class="tagline">МЕХАНИЗМЫ. БИТВЫ. ХАРДКОР.</p>
-            
-            <div class="server-ip-container" onclick="copyIp()">
-                <span id="ip-text">mymine.fun</span>
-                <span class="copy-hint">НАЖМИ ЧТОБЫ СКОПИРОВАТЬ</span>
+    <div class="background"></div>
+
+    <main class="glass-panel">
+        
+        <div class="creeper-header">
+            <div class="creeper-face">
+                <div class="eye">
+                    <div class="pupil"></div>
+                </div>
+                <div class="eye">
+                    <div class="pupil"></div>
+                </div>
+                <div class="mouth"></div>
             </div>
-            <div id="copy-success" style="display: none;">IP СКОПИРОВАН!</div>
+            <h1>MYMINE<span class="highlight">.FUN</span></h1>
+            <p class="subtitle">Уютный. Модовый. Твой.</p>
         </div>
-    </header>
 
-    <section class="about">
-        <h2>О СЕРВЕРЕ</h2>
-        <p>Версия: <strong>1.20.1 (Fabric)</strong></p>
-        <p>
-            Это не просто ванилла. Мы построили сборку на базе <strong>Create</strong> для инженеров 
-            и <strong>Better Combat</strong> для воинов. Строй заводы, исследуй новые биомы 
-            и сражайся с обновленной анимацией.
-        </p>
-    </section>
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'home')">🏠 Главная</button>
+            <button class="tab-btn" onclick="openTab(event, 'mods')">📚 Моды</button>
+            <button class="tab-btn download-tab" onclick="openTab(event, 'download')">⬇️ Скачать</button>
+        </nav>
 
-    <section class="mods">
-        <h2>ОСНОВНЫЕ МОДЫ</h2>
-        <div class="mod-grid">
-            <div class="mod-card tech">
-                <h3>⚙️ Create</h3>
-                <p>Построй фабрику своей мечты. Шестеренки, конвейеры и автоматизация.</p>
-            </div>
-            
-            <div class="mod-card combat">
-                <h3>⚔️ Better Combat & Swords</h3>
-                <p>Новая физика сражений, Simply Swords и анимации из Simply Swords.</p>
-            </div>
-
-            <div class="mod-card world">
-                <h3>🌍 Terralith & Biomes O'Plenty</h3>
-                <p>Невероятная генерация мира. Сотни новых биомов и данжей.</p>
-            </div>
-
-            <div class="mod-card social">
-                <h3>🎙️ Simple Voice Chat</h3>
-                <p>Общайся с игроками голосом прямо в игре. Proximity chat включен.</p>
-            </div>
-
-            <div class="mod-card food">
-                <h3>🔪 Farmer's Delight</h3>
-                <p>Готовь еду по-новому. Новые культуры и механики готовки.</p>
-            </div>
-
-            <div class="mod-card fps">
-                <h3>🚀 FPS Boost</h3>
-                <p>Sodium, Iris, Lithium. Шейдеры поддерживаются, лагов нет.</p>
+        <div id="home" class="tab-content active">
+            <div class="info-box">
+                <h2>👋 Привет, новичок!</h2>
+                <p>Мы создали идеальный баланс между <b>Create</b>, магией и уютным выживанием. Строй заводы, ночуй в палатках и исследуй мир.</p>
+                
+                <div class="ip-card" onclick="copyIp()">
+                    <span class="server-ip">mymine.fun</span>
+                    <span class="click-hint">Нажми, чтобы скопировать IP</span>
+                </div>
+                <div id="copy-msg">Скопировано! Ждем тебя ❤️</div>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <p>Залетай на <span>mymine.fun</span></p>
-        <p class="credits">Сделано для жестких майнеров</p>
-    </footer>
+        <div id="mods" class="tab-content">
+            <div class="mods-grid">
+                <div class="mod-item">
+                    <span class="icon">⚙️</span>
+                    <h3>Create</h3>
+                    <p>Механизмы</p>
+                </div>
+                <div class="mod-item">
+                    <span class="icon">⚔️</span>
+                    <h3>Combat</h3>
+                    <p>Новая боевка</p>
+                </div>
+                <div class="mod-item">
+                    <span class="icon">🍔</span>
+                    <h3>Farmer's</h3>
+                    <p>Еда и кухня</p>
+                </div>
+                <div class="mod-item">
+                    <span class="icon">🎙️</span>
+                    <h3>Voice</h3>
+                    <p>Голосовой чат</p>
+                </div>
+                <div class="mod-item">
+                    <span class="icon">🏔️</span>
+                    <h3>Terra</h3>
+                    <p>Новые биомы</p>
+                </div>
+                <div class="mod-item">
+                    <span class="icon">✨</span>
+                    <h3>Shaders</h3>
+                    <p>Оптимизация</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="download" class="tab-content">
+            <div class="download-area">
+                <h2>🚀 Готов играть?</h2>
+                <p>Скачай наш готовый модпак (все настроено!). Просто распакуй и играй.</p>
+                
+                <a href="https://github.com/pokox3proyoyo-dot/SiteMyMine-3/releases/download/1.0/MegaSbornik-Drun.zip" class="download-btn-big">
+                    <span>СКАЧАТЬ МОДПАК</span>
+                    <small>Версия 1.0 • MegaSbornik-Drun.zip</small>
+                </a>
+                
+                <p class="note">Для версии 1.20.1 (Fabric)</p>
+            </div>
+        </div>
+
+    </main>
 
     <script>
+        // ЛОГИКА ВКЛАДОК
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            // Небольшая задержка для анимации
+            setTimeout(() => {
+                document.getElementById(tabName).classList.add("active");
+            }, 10);
+            
+            evt.currentTarget.className += " active";
+        }
+
+        // ЛОГИКА КОПИРОВАНИЯ IP
         function copyIp() {
             navigator.clipboard.writeText("mymine.fun");
-            const successMsg = document.getElementById("copy-success");
-            successMsg.style.display = "block";
-            setTimeout(() => {
-                successMsg.style.display = "none";
-            }, 2000);
+            const msg = document.getElementById("copy-msg");
+            msg.style.opacity = "1";
+            setTimeout(() => { msg.style.opacity = "0"; }, 2000);
         }
+
+        // ЛОГИКА КРИПЕРА (ГЛАЗА СЛЕДЯТ ЗА МЫШКОЙ)
+        document.addEventListener('mousemove', (e) => {
+            const pupils = document.querySelectorAll('.pupil');
+            
+            pupils.forEach((pupil) => {
+                const eye = pupil.parentElement;
+                const rect = eye.getBoundingClientRect();
+                const eyeCenterX = rect.left + rect.width / 2;
+                const eyeCenterY = rect.top + rect.height / 2;
+                
+                const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+                const distance = Math.min(eye.offsetWidth / 4, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 10);
+                
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance;
+                
+                pupil.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
     </script>
 </body>
 </html>
