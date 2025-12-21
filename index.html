@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYMINE.FUN | Create & Combat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>MYMINE.FUN</h1>
+            <p class="tagline">МЕХАНИЗМЫ. БИТВЫ. ХАРДКОР.</p>
+            
+            <div class="server-ip-container" onclick="copyIp()">
+                <span id="ip-text">mymine.fun</span>
+                <span class="copy-hint">НАЖМИ ЧТОБЫ СКОПИРОВАТЬ</span>
+            </div>
+            <div id="copy-success" style="display: none;">IP СКОПИРОВАН!</div>
+        </div>
+    </header>
+
+    <section class="about">
+        <h2>О СЕРВЕРЕ</h2>
+        <p>Версия: <strong>1.20.1 (Fabric)</strong></p>
+        <p>
+            Это не просто ванилла. Мы построили сборку на базе <strong>Create</strong> для инженеров 
+            и <strong>Better Combat</strong> для воинов. Строй заводы, исследуй новые биомы 
+            и сражайся с обновленной анимацией.
+        </p>
+    </section>
+
+    <section class="mods">
+        <h2>ОСНОВНЫЕ МОДЫ</h2>
+        <div class="mod-grid">
+            <div class="mod-card tech">
+                <h3>⚙️ Create</h3>
+                <p>Построй фабрику своей мечты. Шестеренки, конвейеры и автоматизация.</p>
+            </div>
+            
+            <div class="mod-card combat">
+                <h3>⚔️ Better Combat & Swords</h3>
+                <p>Новая физика сражений, Simply Swords и анимации из Simply Swords.</p>
+            </div>
+
+            <div class="mod-card world">
+                <h3>🌍 Terralith & Biomes O'Plenty</h3>
+                <p>Невероятная генерация мира. Сотни новых биомов и данжей.</p>
+            </div>
+
+            <div class="mod-card social">
+                <h3>🎙️ Simple Voice Chat</h3>
+                <p>Общайся с игроками голосом прямо в игре. Proximity chat включен.</p>
+            </div>
+
+            <div class="mod-card food">
+                <h3>🔪 Farmer's Delight</h3>
+                <p>Готовь еду по-новому. Новые культуры и механики готовки.</p>
+            </div>
+
+            <div class="mod-card fps">
+                <h3>🚀 FPS Boost</h3>
+                <p>Sodium, Iris, Lithium. Шейдеры поддерживаются, лагов нет.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Залетай на <span>mymine.fun</span></p>
+        <p class="credits">Сделано для жестких майнеров</p>
+    </footer>
+
+    <script>
+        function copyIp() {
+            navigator.clipboard.writeText("mymine.fun");
+            const successMsg = document.getElementById("copy-success");
+            successMsg.style.display = "block";
+            setTimeout(() => {
+                successMsg.style.display = "none";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
