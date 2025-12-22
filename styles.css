@@ -147,7 +147,7 @@ main {
 
 .feature-card {
     padding: 30px;
-    background: #e0e0e0; /* <-- СДЕЛАЛ ФОН СВЕТЛО-СЕРЫМ */
+    background: #f5f5f5; /* <-- СДЕЛАЛ ФОН СВЕТЛО-СЕРЫМ */
     border-radius: 15px;
     text-align: left;
     border: 1px solid #eaeaea; /* <-- Еле заметная рамка */
