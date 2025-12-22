@@ -1,63 +1,37 @@
-/* БАЗА */
+/* === БАЗА === */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 body {
     background-color: #ffffff;
     color: #1a1a1a;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     
-    /* Блокировка выделения */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    cursor: default; 
+    /* Запрет выделения и курсор */
+    -webkit-user-select: none; user-select: none;
+    cursor: default;
 }
 
-/* ТИПОГРАФИКА */
-h1 { 
-    font-family: 'Playfair Display', serif; 
-    font-size: 4rem; 
-    font-weight: 900;
-    line-height: 1.1; 
-    margin-bottom: 25px; 
-    color: #000;
-    position: relative;
-    z-index: 2; /* Текст поверх картинки */
-}
-
-h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
+/* === ТИПОГРАФИКА === */
+h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; color: #000; position: relative; z-index: 2; }
+h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; font-weight: 700; }
 h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 10px; }
+h4 { font-family: 'Playfair Display', serif; }
 p { font-size: 1.1rem; color: #555; line-height: 1.6; position: relative; z-index: 2; }
 
-/* ХЕДЕР */
+/* === ХЕДЕР === */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95); /* Чуть прозрачный */
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 5%; max-width: 1400px; margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 100;
 }
 .logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem; }
-
 nav .nav-link {
-    background: none; border: none; margin: 0 15px;
+    background: none; border: none; margin: 0 10px;
     font-family: 'Poppins', sans-serif; font-weight: 600; color: #555;
-    cursor: pointer; position: relative; padding-bottom: 5px; transition: 0.3s;
-    font-size: 1rem;
+    cursor: pointer; padding-bottom: 5px; transition: 0.3s; font-size: 1rem;
 }
 nav .nav-link:hover, nav .nav-link.active { color: #000; }
-nav .nav-link.active::after {
-    content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: #000;
-}
-
 .contact-btn {
     background: transparent; border: 2px solid #000; padding: 10px 25px;
     font-family: 'Poppins', sans-serif; font-weight: 600; cursor: pointer; transition: 0.3s;
@@ -65,139 +39,143 @@ nav .nav-link.active::after {
 .contact-btn:hover { background: #000; color: #fff; }
 .contact-btn.success { background: #27ae60; border-color: #27ae60; color: #fff; }
 
-/* КОНТЕЙНЕРЫ СТРАНИЦ */
+/* === ОСНОВНОЙ КОНТЕНТ === */
 main { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
 .page-container { display: none; padding-bottom: 80px; animation: fadeIn 0.5s ease; }
 .page-container.active-section { display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* === ГЛАВНЫЙ ЭКРАН (HERO) НОВЫЙ СТИЛЬ === */
+/* === HERO SECTION === */
 .hero-block {
-    position: relative;
-    min-height: 80vh; /* Высота блока на почти весь экран */
-    display: flex;
-    align-items: center;
-    margin-bottom: 50px;
+    position: relative; min-height: 75vh; display: flex; align-items: center; margin-bottom: 30px;
 }
-
-/* Обертка для картинки, чтобы она уходила под текст */
 .hero-bg-wrapper {
-    position: absolute;
-    top: 0;
-    right: -10%; /* Сдвигаем вправо, чтобы не мешала заголовку слева */
-    width: 75%;  /* Ширина картинки */
-    height: 100%;
-    z-index: 0;
-    /* Магия исчезновения влево */
+    position: absolute; top: 0; right: -10%; width: 75%; height: 100%; z-index: 0;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
     mask-image: linear-gradient(to right, transparent 0%, black 40%);
-    pointer-events: none; /* Чтобы картинку нельзя было кликнуть или выделить */
+    pointer-events: none;
 }
+.hero-bg { width: 100%; height: 100%; object-fit: cover; filter: drop-shadow(-20px 0 30px rgba(0,0,0,0.15)); }
+.hero-content { flex: 1; max-width: 600px; padding-top: 50px; z-index: 2; }
+.season-badge { background: #000; color: #fff; font-weight: bold; padding: 5px 12px; font-size: 0.8rem; margin-bottom: 20px; display: inline-block; }
 
-.hero-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    /* Тень для объема (видная справа) */
-    filter: drop-shadow(-20px 0 30px rgba(0,0,0,0.15));
-}
-
-.hero-content {
-    flex: 1;
-    max-width: 600px;
-    padding-top: 50px;
-    z-index: 2; /* Текст выше картинки */
-}
-
-.season-badge {
-    background: #000; color: #fff; font-weight: bold; padding: 5px 12px;
-    font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 20px; display: inline-block;
-}
-
+/* Кнопка */
 .reserve-btn {
-    display: inline-block; background: #000; color: #fff; padding: 18px 40px;
+    display: inline-block; background: #000; color: #fff; padding: 18px 40px; border: none;
     text-decoration: none; font-weight: 600; margin-top: 30px; transition: 0.3s;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Тень кнопки */
+    cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.2); font-size: 1rem;
 }
 .reserve-btn:hover { background: #333; transform: translateY(-2px); }
 
-/* === СЕКЦИЯ 3 СЕЗОН + ГАЛЕРЕЯ === */
-.season-info { margin-top: 50px; border-top: 1px solid #eee; padding-top: 50px; position: relative; z-index: 2; background: white; }
-.text-block { max-width: 800px; margin-bottom: 40px; }
+/* Live Widget */
+.server-status-widget {
+    display: flex; align-items: center; margin-bottom: 20px;
+    background: white; padding: 10px 20px; border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); width: fit-content; border: 1px solid #eee;
+}
+.status-indicator { width: 12px; height: 12px; background: #ccc; border-radius: 50%; margin-right: 10px; transition: 0.3s; }
+.status-text { font-weight: 700; font-size: 0.9rem; color: #333; }
 
-.gallery-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-}
-.gallery-item {
-    height: 250px; overflow: hidden; border-radius: 5px; position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-.gallery-item img {
-    width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
-}
-.gallery-item:hover img { transform: scale(1.05); }
+/* Stats Row */
+.stats-row { display: flex; gap: 30px; margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid #eee; }
+.stat-item h3 { font-size: 2.5rem; font-weight: 900; margin: 0; }
+.stat-item p { color: #777; font-size: 0.9rem; margin: 0; }
 
-/* === ОСОБЕННОСТИ И ТГ === */
-.section-header { text-align: center; margin-bottom: 50px; padding-top: 40px; }
-.features-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;
-}
-.feature-card {
-    padding: 30px; background: #f9f9f9; border-radius: 10px; text-align: center;
-    border: 1px solid transparent; transition: 0.3s;
-}
-.feature-card:hover { border-color: #ddd; background: #fff; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+/* === ГАЛЕРЕЯ === */
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+.photo-card { height: 250px; border-radius: 10px; overflow: hidden; cursor: pointer; }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+.photo-card:hover img { transform: scale(1.05); }
 
-/* БЛОК ТЕЛЕГРАМА */
-.admin-contact {
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
-}
+/* Модалка Галереи */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
+.modal-content { max-width: 90%; max-height: 90%; animation: zoom 0.3s; }
+.close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
+@keyframes zoom { from{transform:scale(0)} to{transform:scale(1)} }
 
-.tg-card {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(135deg, #0088cc 0%, #005f8f 100%); /* Цвет Телеграма */
-    color: white;
-    padding: 25px 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0, 136, 204, 0.3);
-    transition: 0.3s;
-    max-width: 500px;
-    width: 100%;
-}
+/* === ОСОБЕННОСТИ === */
+.section-header { text-align: center; margin-bottom: 40px; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.feature-card { padding: 30px; background: #f9f9f9; border-radius: 10px; text-align: center; transition: 0.3s; }
+.feature-card:hover { background: #fff; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
-.tg-card:hover { transform: scale(1.02); }
-
+.admin-contact { margin-top: 60px; display: flex; justify-content: center; }
+.tg-card { display: flex; align-items: center; background: linear-gradient(135deg, #0088cc 0%, #005f8f 100%); color: white; padding: 25px 40px; border-radius: 20px; width: 100%; max-width: 500px; }
 .tg-icon { font-size: 3rem; margin-right: 20px; }
-.tg-info h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; margin: 0; color: rgba(255,255,255,0.9); }
-.tg-info p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 10px; }
-.tg-link {
-    display: inline-block;
-    background: white;
-    color: #0088cc;
-    padding: 8px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 800;
-    cursor: pointer;
-}
+.tg-link { color: #0088cc; background: white; padding: 8px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; }
 
-/* МОБИЛКА */
+/* === МЕНЮ СКАЧИВАНИЯ (SPLIT) === */
+.split-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: #000; z-index: 9999; display: flex;
+    visibility: hidden; opacity: 0; transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.split-overlay.active { visibility: visible; opacity: 1; }
+
+.split-side { flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; transition: 0.5s; overflow: hidden; }
+.side-standard { background: #ffffff; color: #1a1a1a; }
+.side-fresh { background: #1a1a1a; color: #ffffff; border-left: 1px solid rgba(255,255,255,0.1); }
+
+.side-standard:hover { flex: 1.2; background: #f0f0f0; }
+.side-fresh:hover { flex: 1.2; background: #000; }
+
+.split-content { max-width: 400px; padding: 20px; animation: fadeIn 0.8s ease; }
+.split-content h2 { font-size: 2.5rem; margin-bottom: 15px; font-weight: 900; }
+
+.mod-list { list-style: none; text-align: left; margin: 20px auto; display: inline-block; font-size: 1.1rem; }
+.mod-list li { margin-bottom: 10px; }
+
+/* Кнопки меню */
+.split-btn {
+    display: inline-block; padding: 15px 40px; margin-top: 20px;
+    text-decoration: none; font-weight: 800; text-transform: uppercase;
+    border-radius: 5px; transition: 0.3s; border: 2px solid currentColor;
+}
+.side-standard .split-btn { color: #000; border-color: #000; }
+.side-standard .split-btn:hover { background: #000; color: #fff; }
+.side-fresh .split-btn { color: #fff; border-color: #fff; }
+.side-fresh .split-btn:hover { background: #fff; color: #000; }
+
+.btn-accent { border-color: #2ecc71 !important; color: #2ecc71 !important; }
+.btn-accent:hover { background: #2ecc71 !important; color: #000 !important; }
+
+.close-split {
+    position: absolute; top: 20px; right: 30px; background: none; border: none;
+    color: #fff; font-size: 3rem; cursor: pointer; z-index: 10000;
+    transition: 0.3s; mix-blend-mode: difference;
+}
+.close-split:hover { transform: rotate(90deg); }
+
+/* Инструкции и Аргументы */
+.instructions-box { margin-top: 30px; background: rgba(0,0,0,0.05); padding: 15px; border-radius: 10px; text-align: left; border: 1px dashed #aaa; }
+.instructions-box h4 { margin-bottom: 10px; color: #e74c3c; font-size: 0.9rem; font-weight: 800; }
+.instructions-box ul { list-style: none; font-size: 0.85rem; margin-bottom: 15px; }
+.instructions-box li { margin-bottom: 5px; padding-left: 15px; position: relative; }
+.instructions-box li::before { content: "•"; position: absolute; left: 0; color: #333; }
+
+.java-args-container p { font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; color: #555; }
+.code-block {
+    background: #2d3436; color: #00b894; padding: 10px; border-radius: 5px;
+    font-family: 'Courier New', monospace; font-size: 0.75rem; cursor: pointer;
+    position: relative; transition: 0.2s; border: 1px solid #00b894;
+}
+.code-block:hover { background: #000; transform: scale(1.02); }
+.code-text { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.copy-tooltip { display: block; font-size: 0.6rem; color: #aaa; margin-top: 5px; text-transform: uppercase; text-align: center; }
+.code-block.copied { background: #27ae60; color: #fff; border-color: #fff; }
+.code-block.copied .copy-tooltip { color: #fff; }
+
+/* Мобилка */
 @media (max-width: 768px) {
-    h1 { font-size: 3rem; }
+    h1 { font-size: 2.5rem; }
     .hero-block { flex-direction: column; min-height: auto; }
-    .hero-bg-wrapper { 
-        position: relative; width: 100%; height: 300px; right: 0; 
-        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        margin-bottom: -50px; /* Наложение текста на картинку */
-    }
+    .hero-bg-wrapper { position: relative; width: 100%; height: 300px; right: 0; mask-image: linear-gradient(to bottom, black 50%, transparent 100%); margin-bottom: -50px; }
     .hero-content { padding-top: 0; text-align: center; width: 100%; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    header { flex-wrap: wrap; padding: 15px; }
+    .stats-row { flex-wrap: wrap; justify-content: center; text-align: center; }
+    header { flex-wrap: wrap; justify-content: center; }
     nav { width: 100%; order: 3; margin-top: 15px; display: flex; justify-content: center; }
+    
+    .split-overlay { flex-direction: column; }
+    .side-standard:hover, .side-fresh:hover { flex: 1; }
+    .split-content h2 { font-size: 2rem; }
 }
