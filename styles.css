@@ -38,8 +38,22 @@ nav .nav-link:hover, nav .nav-link.active { color: #000; }
 .contact-btn.success { background: #27ae60; border-color: #27ae60; color: #fff; }
 
 /* === ОСНОВНОЙ КОНТЕНТ === */
-main { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
-.page-container { display: none; padding-bottom: 80px; animation: fadeIn 0.5s ease; }
+main { max-width: 1400px; margin: 0 auto; padding: 0 5%; overflow: hidden;  }
+.page-container { 
+    display: none; 
+    padding-bottom: 80px; 
+}
+.page-container.active-section { display: block; }
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50%); } 
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50%); } 
+    to { opacity: 1; transform: translateX(0); }
+}
+.anim-next { animation: slideInRight 0.4s ease-out forwards; }
+.anim-prev { animation: slideInLeft 0.4s ease-out forwards; }
 .page-container.active-section { display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
