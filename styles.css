@@ -147,14 +147,14 @@ main {
 
 .feature-card {
     padding: 30px;
-    background: #f7f7f7; /* <-- СДЕЛАЛ ФОН СВЕТЛО-СЕРЫМ */
+    background: #e0e0e0; /* <-- СДЕЛАЛ ФОН СВЕТЛО-СЕРЫМ */
     border-radius: 15px;
     text-align: left;
     border: 1px solid #eaeaea; /* <-- Еле заметная рамка */
     transition: 0.3s;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* <-- Легкая тень для объема */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* <-- Легкая тень для объема */
 }
 
 /* Эффект при наведении */
@@ -162,7 +162,7 @@ main {
     transform: translateY(-5px);
     background: #ffffff; /* <-- Становится белым и ярким */
     border-color: #000; /* <-- Появляется черная рамка */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
