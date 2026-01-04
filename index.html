@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;800&family=Courier+New&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <header>
         <div class="logo">MyMine.fun</div>
         <nav>
@@ -18,9 +17,13 @@
             <button class="nav-link" onclick="showSection('gallery-section')">Галерея</button>
             <button class="nav-link" onclick="showSection('mods-section')">О сервере</button>
         </nav>
-        <button class="contact-btn" onclick="copyIp()">
-            <span id="ip-text">play.mymine.fun</span>
-        </button>
+        <div class="header-controls">
+            <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">🌙</button>
+        
+            <button class="contact-btn" onclick="copyIp()">
+                <span id="ip-text">play.mymine.fun</span>
+            </button>
+        </div>
     </header>
 
     <main>
@@ -225,7 +228,27 @@
     </div>
 
     <script>
-        // Твой JS код полностью рабочий, оставляем как есть
+        function toggleTheme() {
+    const body = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle');
+    
+    if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        themeBtn.innerText = '🌙';
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        themeBtn.innerText = '☀️';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Проверка сохраненной темы при загрузке
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('theme-toggle').innerText = '☀️';
+}
         const sectionOrder = ['home', 'gallery-section', 'mods-section'];
 
         function showSection(sectionId) {
