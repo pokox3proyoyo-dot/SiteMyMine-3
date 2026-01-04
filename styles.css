@@ -30,6 +30,9 @@ body, html {
 ::-webkit-scrollbar-thumb:hover {
     background: #333333;
 }
+::-webkit-scrollbar-button {
+    display: none;
+}
 
 /* Для Firefox */
 html {
